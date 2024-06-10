@@ -1,0 +1,59 @@
+body {
+    background-color: #f8f9fa; /* Light yellow background */
+    color: #495057;
+}
+
+.navbar {
+    background-color: #ffecb3; /* Light yellow background for the navbar */
+}
+
+.navbar-brand {
+    color: #343a40;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-toggler-icon {
+    background-color: #343a40;
+}
+
+.navbar-nav .nav-link {
+    color: #343a40;
+    font-weight: bold;
+}
+
+.navbar-nav .btn {
+    background-color: #343a40;
+    color: #ffecb3; /* Light yellow text color for buttons in the navbar */
+    transition: transform 0.2s ease-in-out;
+}
+
+.navbar-nav .btn:hover {
+    transform: scale(1.1);
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, p {
+    color: #343a40;
+}
+
+.btn-primary {
+    background-color: #ffecb3; /* Light yellow background for primary buttons */
+    border-color: #ffecb3;
+    color: #343a40; /* Dark text color for primary buttons */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #fff; /* White background on hover */
+    border-color: #fff;
+    color: #343a40;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 235, 179, 0.5); /* Light yellow shadow on hover */
+}

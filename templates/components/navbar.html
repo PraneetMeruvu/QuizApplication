@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}">The Quiz Board</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+                <li class="nav-item my-2">
+                    <a class="btn" aria-current="page" href="{% url 'all_quiz' %}">Quiz</a>
+                </li>
+                <li class="nav-item my-2">
+                    <a class="btn ms-2" aria-current="page" href="{% url 'leaderboard' %}">LeaderBoard</a>
+                </li>
+                {% if request.user.profile.accountType == 'teacher' %}
+                <li class="nav-item my-2">
+                    <a class="btn ms-2" aria-current="page" href="{% url 'dashboard' %}">Dashboard</a>
+                </li>
+                {% endif %}
+                <li class="nav-item dropdown my-2">
+                    <a class="btn ms-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Info
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" style="margin-top: 5px;">
+                        <li><a class="dropdown-item" href="{% url 'about' %}">About Us</a></li>
+                        <li><a class="dropdown-item" href="{% url 'contact' %}">Contact</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Essentials to make this Website</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <form class="d-flex" role="search" action='{% url "search_users" %}'>
+                <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search" required>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn btn-primary ms-2" type="button">
+                    Logout
+                </a>
+                {% else %}
+                <div class="btn-group ms-2">
+                    <a href="{% url 'login' %}" class="btn btn-primary" type="button">
+                        Login
+                    </a>
+                    <button class="btn btn-primary dropdown-toggle dropdown-toggle-split" type="button" id="loginDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span class="visually-hidden">Toggle Dropdown</span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                        <li><a class="dropdown-item" href="{% url 'login' %}">Login as Student</a></li>
+                        <li><a class="dropdown-item" href="{% url 'login' %}">Login as Teacher</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</nav>

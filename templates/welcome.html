@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container text-center my-5">
+    <h1 class="display-1 fw-bold my-4">The Quiz Board</h1>
+    <p class="fs-4 my-4">Unlock the power of knowledge, one question at a time. Welcome to our online quiz system, where curiosity meets triumph.</p>
+</div>
+
+<div class="d-flex justify-content-center">
+    {% if not request.user.is_authenticated %}
+    <div class="btn-group">
+        <a href="{% url 'register' %}" type="button" class="btn btn-primary btn-lg">
+            Signup
+        </a>
+        <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" id="signupDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" style="margin-top: 5px;" aria-labelledby="signupDropdown">
+            <li><a href="{% url 'register' %}" class="dropdown-item">Signup as Student</a></li>
+            <li><a href="{% url 'register' %}" class="dropdown-item">Signup as Teacher</a></li>
+        </ul>
+    </div>
+    {% endif %}
+    <a href="{% url 'all_quiz' %}" class="btn btn-primary btn-lg mx-2">Take quizzes</a>
+</div>
+
+{% endblock content %}
